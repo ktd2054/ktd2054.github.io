@@ -3,22 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional Resume of Kshitiz Dhungel" />
+  <meta name="description" content="Resume of Kshitiz Dhungel" />
   <title>Kshitiz Dhungel | Resume</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header p { font-size: 1.1rem; margin-top: 0.5rem; }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #ffea00;
+      font-weight: 600;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      border-left: 6px solid #667eea;
+      padding-left: 1rem;
+      color: #444;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      margin-top: 1rem;
+      animation: fadeInUp 1s ease both;
+    }
+    footer {
+      background: #667eea;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    a { color: #444; }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <main id="app">
+  <main>
     <header>
       <h1>Kshitiz Dhungel</h1>
-      <p>Information Technology Graduate | Aspiring SOC Analyst | Remote IT Support</p>
+      <p>IT Graduate | SOC Analyst Aspirant | Remote IT Support</p>
       <nav>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -26,42 +89,30 @@
 
     <section id="about">
       <h2>About Me</h2>
-      <p>
-        Recent Master's graduate in Information Technology based in Australia, passionate about cybersecurity and IT support. Eager to start a remote role contributing to a modern SOC or MSSP team.
-      </p>
+      <p>I am a Master's graduate in IT from Australia, passionate about cybersecurity and IT support. Currently building my skills in SOC operations, Splunk, and Microsoft Azure while preparing for real-world remote support roles.</p>
     </section>
 
     <section id="skills">
-      <h2>Technical Skills</h2>
+      <h2>Skills</h2>
       <ul>
-        <li>SIEM Tools (Splunk, Elastic)</li>
-        <li>Ticketing Systems (Jira, ServiceNow)</li>
-        <li>Networking, Firewalls, VPNs</li>
-        <li>Linux & Windows Administration</li>
-        <li>Bash / PowerShell / Python Basics</li>
-        <li>TryHackMe SOC1 Pathway</li>
-        <li>Azure (AZ-900 Certified - in progress)</li>
+        <li>SIEM (Splunk, Elastic)</li>
+        <li>Linux & Windows Admin</li>
+        <li>Ticketing Tools (Jira, ServiceNow)</li>
+        <li>TryHackMe SAL1, AZ-900 (in progress)</li>
+        <li>Remote Desktop & Troubleshooting</li>
+        <li>Bash, Python Basics, PowerShell</li>
       </ul>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="card">
-        <h3>Calvary Corymbia Aged Care | Personal Care Worker</h3>
-        <p><em>2022 – Present, Sydney, AU</em></p>
-        <p>Provided high-quality care and support, strengthening communication and multitasking under pressure—valuable in IT support environments.</p>
-      </div>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
       <div class="card">
         <h3>Cybersecurity Home Lab</h3>
-        <p>Created and simulated attacks on vulnerable web apps using Kali Linux, Metasploitable, and Splunk. Logged and analyzed attack data to produce incident reports.</p>
+        <p>Built a virtual lab using Kali Linux, Splunk, and Metasploitable. Simulated attacks and analyzed logs to generate incident reports.</p>
       </div>
       <div class="card">
-        <h3>IoT Network Monitoring (Capstone)</h3>
-        <p>Developed a simulated IoT network with anomaly detection logic in Cooja. Identified security issues, proposed solutions, and documented findings.</p>
+        <h3>IoT Traffic Monitoring</h3>
+        <p>Used Cooja and Contiki OS to monitor IoT network behavior and detect anomalies. Wrote reports and proposed security solutions.</p>
       </div>
     </section>
 
@@ -69,29 +120,27 @@
       <h2>Contact</h2>
       <p>Email: <a href="mailto:kshitiz@example.com">kshitiz@example.com</a></p>
       <p>LinkedIn: <a href="https://linkedin.com/in/kshitizdhungel" target="_blank">linkedin.com/in/kshitizdhungel</a></p>
-      <p>GitHub: <a href="https://github.com/kshitizdhungel" target="_blank">github.com/kshitizdhungel</a></p>
+      <p>GitHub: <a href="https://github.com/ktd2054" target="_blank">github.com/ktd2054</a></p>
     </section>
 
     <footer>
-      <p>&copy; 2025 Kshitiz Dhungel. Powered by GitHub Pages.</p>
+      <p>&copy; 2025 Kshitiz Dhungel. Made with ❤️ on GitHub Pages.</p>
     </footer>
   </main>
 
   <script>
     // Scroll reveal animation
     const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+    const reveal = () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          section.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    };
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
   </script>
 </body>
 </html>
-
