@@ -2,130 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kshitiz Resume Quest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kshitiz Dhungel - Resume Card</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Courier New', monospace;
-      background: linear-gradient(to bottom, #121212, #1a1a1a);
-      color: #f2f2f2;
-      padding: 2rem;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
     }
-    .game-box {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-      background: #222;
-      border: 2px solid #555;
-      border-radius: 16px;
-      box-shadow: 0 0 20px #00ff99;
+    .resume-card {
+      background: white;
+      width: 340px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      padding: 30px 35px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-      font-size: 2.5rem;
-      color: #00ff99;
+    .resume-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    .name {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    .title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
     }
     .section {
-      margin-bottom: 2rem;
+      margin-bottom: 22px;
     }
-    .section h2 {
-      margin-bottom: 0.5rem;
-      color: #ffcc00;
+    .section h3 {
+      font-size: 1.2rem;
+      color: #0077cc;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
     }
-    .info {
-      background: #333;
-      padding: 1rem;
-      border-radius: 10px;
+    .section p, 
+    .section ul {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.4;
+      margin: 0;
+      padding-left: 15px;
     }
-    .btn-download {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: #00ff99;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 1rem;
-      transition: background 0.3s;
+    .section ul {
+      list-style-type: disc;
     }
-    .btn-download:hover {
-      background: #00cc7a;
+    .section ul li {
+      margin-bottom: 8px;
     }
-    .level-up {
-      animation: glow 1s ease-in-out infinite alternate;
+    .contact {
+      font-size: 0.9rem;
+      color: #444;
+      margin-top: 10px;
+      line-height: 1.5;
     }
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99;
-      }
-      to {
-        text-shadow: 0 0 15px #00ff99, 0 0 20px #00ff99;
-      }
+    .contact span {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="game-box">
-    <h1 class="level-up">🎮 Resume Quest: Kshitiz Dhungel</h1>
+  <article class="resume-card" role="main" aria-label="Resume of Kshitiz Dhungel">
+    <header>
+      <h1 class="name">Kshitiz Dhungel</h1>
+      <p class="title">Information Technology Graduate | Aspiring SOC Analyst</p>
+    </header>
 
-    <div class="section">
-      <h2>🧙‍♂️ Profile</h2>
-      <div class="info">
-        <p><strong>Name:</strong> Kshitiz Dhungel</p>
-        <p><strong>Role:</strong> Junior Cybersecurity Adventurer</p>
-        <p><strong>Location:</strong> Macquarie Park, NSW, Australia</p>
-      </div>
-    </div>
+    <section class="section profile">
+      <h3>Profile</h3>
+      <p>
+        Passionate IT graduate with strong interest in cybersecurity, cloud technologies, and SOC analysis. Experienced with hands-on labs in Kali Linux, Splunk, and cloud fundamentals. Motivated to learn, grow, and contribute in dynamic IT environments.
+      </p>
+    </section>
 
-    <div class="section">
-      <h2>⚒️ Skills</h2>
-      <div class="info">
-        <ul>
-          <li>🛡️ SOC Monitoring</li>
-          <li>🕵️‍♂️ Threat Hunting (TryHackMe / Splunk)</li>
-          <li>🧠 Microsoft Azure Fundamentals (AZ-900)</li>
-          <li>💻 Linux & Windows Server Handling</li>
-          <li>🧪 Packet Analysis (Wireshark, Suricata)</li>
-        </ul>
-      </div>
-    </div>
+    <section class="section skills">
+      <h3>Skills</h3>
+      <ul>
+        <li>Cybersecurity & SOC Fundamentals (TryHackMe SAL1 Pathway)</li>
+        <li>Linux & Windows Administration</li>
+        <li>Cloud Basics: Azure Fundamentals (AZ-900)</li>
+        <li>Network Monitoring & Incident Response</li>
+        <li>Basic Scripting and Automation</li>
+      </ul>
+    </section>
 
-    <div class="section">
-      <h2>📚 Education</h2>
-      <div class="info">
-        <p>🎓 Master's in Information Technology</p>
-        <p>King's Own Institute, Sydney</p>
-      </div>
-    </div>
+    <section class="section experience">
+      <h3>Experience</h3>
+      <ul>
+        <li><strong>Personal Projects</strong> - Built a home cybersecurity lab with Windows Server, Kali Linux, and Metasploitable for hands-on SOC and pentesting practice.</li>
+        <li><strong>Internship / Volunteer Work</strong> - Assisted with basic IT support and troubleshooting at community organizations (details on request).</li>
+      </ul>
+    </section>
 
-    <div class="section">
-      <h2>📜 Certifications (in progress)</h2>
-      <div class="info">
-        <ul>
-          <li>🧩 Splunk Core Certified User</li>
-          <li>🌩️ Microsoft AZ-900</li>
-          <li>🔐 TryHackMe: SOC Analyst L1</li>
-        </ul>
-      </div>
-    </div>
+    <section class="section education">
+      <h3>Education</h3>
+      <ul>
+        <li>Master of Information Technology</li>
+        <li>King's Own Institute, Sydney</li>
+        <li>Graduated 2025</li>
+      </ul>
+    </section>
 
-    <div class="section">
-      <h2>📞 Contact</h2>
-      <div class="info">
-        <p>Email: kshitiz@example.com</p>
-        <p>GitHub: <a href="https://github.com/ktd" style="color:#00ff99">@ktd</a></p>
-      </div>
-    </div>
-
-    <div style="text-align:center">
-      <a href="#" class="btn-download">⬇️ Download Resume (PDF)</a>
-    </div>
-  </div>
+    <section class="contact">
+      <h3>Contact</h3>
+      <span>Email: <a href="mailto:kshitiz@example.com">kshitiz@example.com</a></span>
+      <span>Phone: +61 123 456 789</span>
+      <span>LinkedIn: <a href="https://linkedin.com/in/kshitiz" target="_blank" rel="noopener">linkedin.com/in/kshitiz</a></span>
+      <span>Location: Sydney, Australia</span>
+    </section>
+  </article>
 </body>
 </html>
