@@ -10,48 +10,74 @@
     box-sizing: border-box;
     margin: 0; padding: 0;
   }
-  body {
+  body, html {
+    height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f4f4f4;
     color: #222222;
-    line-height: 1.6;
   }
-  header {
-    background: #317873;
-    color: #e0e6e4;
+  body {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* Sidebar */
+  .sidebar {
     position: sticky;
     top: 0;
-    padding: 1rem 2rem;
+    height: 100vh;
+    width: 250px;
+    background: #317873;
+    color: #e0e6e4;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 6px rgba(49,120,115,0.4);
-    z-index: 1000;
+    padding: 2rem 1.5rem;
+    box-shadow: 2px 0 8px rgba(49,120,115,0.3);
+    flex-shrink: 0;
   }
-  header .logo {
+  .sidebar .logo {
     font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: 1.5px;
-    cursor: default;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    user-select: none;
   }
+
   nav ul {
     list-style: none;
-    display: flex;
-    gap: 1.5rem;
+  }
+  nav ul li {
+    margin-bottom: 1.3rem;
   }
   nav ul li a {
     color: #e0e6e4;
-    text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    text-decoration: none;
     transition: color 0.3s ease;
   }
-  nav ul li a:hover {
+  nav ul li a:hover, nav ul li a.active {
     color: #b2d8d8;
   }
 
-  /* Main container */
+  /* Contact area in sidebar */
+  .sidebar-contact {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  .sidebar-contact a {
+    color: #b2d8d8;
+    text-decoration: none;
+    display: block;
+    margin: 0.3rem 0;
+  }
+  .sidebar-contact a:hover {
+    text-decoration: underline;
+  }
+
+  /* Main content */
   main {
+    flex: 1;
     max-width: 900px;
     margin: 2rem auto 4rem;
     padding: 0 1rem;
@@ -129,51 +155,61 @@
     color: #555555;
   }
 
-  /* Contact */
-  .contact-info {
-    font-size: 1.1rem;
-    line-height: 1.4;
-  }
-  .contact-info a {
-    color: #317873;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .contact-info a:hover {
-    text-decoration: underline;
-  }
-
   /* Responsive */
-  @media (max-width: 600px) {
-    header {
+  @media (max-width: 768px) {
+    body {
       flex-direction: column;
-      align-items: flex-start;
-      gap: 0.8rem;
+    }
+    .sidebar {
+      position: relative;
+      height: auto;
+      width: 100%;
+      padding: 1rem 1rem 0.5rem;
+      box-shadow: none;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
     nav ul {
-      flex-direction: column;
-      gap: 0.7rem;
-      width: 100%;
+      display: flex;
+      gap: 1rem;
     }
-    nav ul li a {
-      font-size: 1.2rem;
+    nav ul li {
+      margin: 0;
+    }
+    main {
+      margin: 1rem;
+      max-width: 100%;
+      padding: 0 1rem 2rem;
+    }
+    .sidebar-contact {
+      display: none;
     }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">Kshitiz Dhungel</div>
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+<div class="sidebar">
+  <div>
+    <div class="logo">Kshitiz Dhungel</div>
+    <nav>
+      <ul>
+        <li><a href="#about" class="active">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="sidebar-contact">
+    <p><strong>Contact</strong></p>
+    <a href="mailto:kshitiz@example.com">kshitiz@example.com</a>
+    <a href="https://linkedin.com/in/kshitizdhungel" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/ktd2054" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
 
 <main>
   <section id="about" class="animated-section">
@@ -216,10 +252,8 @@
 
   <section id="contact" class="animated-section">
     <h2>Contact</h2>
-    <p class="contact-info">
-      Email: <a href="mailto:kshitiz@example.com">kshitiz@example.com</a><br />
-      LinkedIn: <a href="https://linkedin.com/in/kshitizdhungel" target="_blank" rel="noopener">linkedin.com/in/kshitizdhungel</a><br />
-      GitHub: <a href="https://github.com/ktd2054" target="_blank" rel="noopener">github.com/ktd2054</a>
+    <p>
+      Feel free to reach out to me via email or connect on LinkedIn or GitHub. I’m open for collaborations and job opportunities.
     </p>
   </section>
 </main>
@@ -227,6 +261,7 @@
 <script>
   // Animate sections on scroll
   const sections = document.querySelectorAll('.animated-section');
+  const navLinks = document.querySelectorAll('nav ul li a');
 
   function checkVisibility() {
     const triggerBottom = window.innerHeight * 0.85;
@@ -240,6 +275,17 @@
 
   window.addEventListener('scroll', checkVisibility);
   window.addEventListener('load', checkVisibility);
+
+  // Highlight active nav link on scroll
+  function setActiveLink() {
+    let index = sections.length;
+
+    while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+    navLinks.forEach(link => link.classList.remove('active'));
+    navLinks[index].classList.add('active');
+  }
+  window.addEventListener('scroll', setActiveLink);
+  window.addEventListener('load', setActiveLink);
 </script>
 
 </body>
