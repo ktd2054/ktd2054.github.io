@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Your Name | Portfolio</title>
+<title>Kshitiz Dhungel | Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
 <style>
   /* Reset */
   * {
@@ -12,8 +16,9 @@
   }
   body, html {
     height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f4f4;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #fafafa;
     color: #222222;
   }
   body {
@@ -26,72 +31,115 @@
     position: sticky;
     top: 0;
     height: 100vh;
-    width: 250px;
-    background: #317873;
-    color: #e0e6e4;
+    width: 280px;
+    background: linear-gradient(135deg, #2a534a 0%, #317873 100%);
+    color: #d6e7e4;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem 1.5rem;
-    box-shadow: 2px 0 8px rgba(49,120,115,0.3);
+    padding: 2.5rem 2rem;
+    box-shadow: 3px 0 12px rgba(49,120,115,0.35);
     flex-shrink: 0;
+    user-select: none;
   }
   .sidebar .logo {
     font-weight: 700;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    user-select: none;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: default;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
 
   nav ul {
     list-style: none;
   }
   nav ul li {
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.8rem;
   }
   nav ul li a {
-    color: #e0e6e4;
+    color: #d6e7e4;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     text-decoration: none;
-    transition: color 0.3s ease;
+    position: relative;
+    padding-left: 0.4rem;
+    transition:
+      color 0.3s ease,
+      padding-left 0.3s ease;
+    display: inline-block;
   }
-  nav ul li a:hover, nav ul li a.active {
-    color: #b2d8d8;
+  nav ul li a:hover {
+    color: #a6d0ca;
+    padding-left: 1rem;
+  }
+  nav ul li a.active {
+    color: #b2dbd1;
+    font-weight: 700;
+  }
+  nav ul li a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.5rem;
+    width: 4px;
+    background: #b2dbd1;
+    border-radius: 4px;
   }
 
-  /* Contact area in sidebar */
+  /* Sidebar contact */
   .sidebar-contact {
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-top: 1px solid rgba(182, 216, 209, 0.3);
+    padding-top: 2rem;
+  }
+  .sidebar-contact p {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    color: #cde6e0;
   }
   .sidebar-contact a {
-    color: #b2d8d8;
+    color: #cde6e0;
     text-decoration: none;
-    display: block;
-    margin: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
   }
   .sidebar-contact a:hover {
-    text-decoration: underline;
+    color: #a6d0ca;
+  }
+  .sidebar-contact svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
   }
 
   /* Main content */
   main {
     flex: 1;
     max-width: 900px;
-    margin: 2rem auto 4rem;
-    padding: 0 1rem;
+    margin: 2.5rem auto 4rem;
+    padding: 0 1.5rem;
   }
 
   section {
     margin-bottom: 4rem;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(25px);
     animation-fill-mode: forwards;
   }
   section.visible {
     animation-name: fadeInUp;
-    animation-duration: 1s;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
   }
 
   @keyframes fadeInUp {
@@ -102,57 +150,73 @@
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #317873;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #317873;
+    border-bottom: 3px solid #a6d0ca;
     padding-bottom: 0.3rem;
     width: fit-content;
+    font-weight: 700;
+    letter-spacing: 1.2px;
   }
 
   p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.3rem;
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.6;
   }
 
   /* Skill tags */
   .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7rem;
+    gap: 0.9rem;
   }
   .skills-list span {
-    background: #7db9b6;
-    color: #114c47;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    background: #a6d0ca;
+    color: #144a45;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-size: 1rem;
     font-weight: 600;
+    box-shadow: 0 1px 3px rgba(20,74,69,0.4);
+    transition: background-color 0.3s ease;
+    cursor: default;
+  }
+  .skills-list span:hover {
+    background-color: #87b9b0;
   }
 
   /* Projects */
   .projects-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.8rem;
   }
   .project-card {
     background: white;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(49,120,115,0.15);
-    transition: transform 0.3s ease;
+    padding: 1.3rem 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(49,120,115,0.12);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    cursor: default;
   }
   .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(49,120,115,0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(49,120,115,0.25);
   }
   .project-card h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     color: #317873;
+    font-weight: 700;
   }
   .project-card p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #555555;
+    line-height: 1.5;
   }
 
   /* Responsive */
@@ -164,35 +228,44 @@
       position: relative;
       height: auto;
       width: 100%;
-      padding: 1rem 1rem 0.5rem;
+      padding: 1.5rem 1rem 0.5rem;
       box-shadow: none;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 1px solid #d0e4df;
+    }
+    .sidebar .logo {
+      font-size: 1.4rem;
+      margin-bottom: 0;
     }
     nav ul {
       display: flex;
       gap: 1rem;
+      margin-left: auto;
     }
     nav ul li {
       margin: 0;
     }
-    main {
-      margin: 1rem;
-      max-width: 100%;
-      padding: 0 1rem 2rem;
+    nav ul li a {
+      font-size: 1rem;
     }
     .sidebar-contact {
       display: none;
+    }
+    main {
+      margin: 1.5rem 1rem 2rem;
+      max-width: 100%;
+      padding: 0 1rem;
     }
   }
 </style>
 </head>
 <body>
 
-<div class="sidebar">
+<div class="sidebar" role="navigation" aria-label="Main sidebar navigation">
   <div>
-    <div class="logo">Kshitiz Dhungel</div>
+    <div class="logo" aria-label="Website logo">Kshitiz Dhungel</div>
     <nav>
       <ul>
         <li><a href="#about" class="active">About</a></li>
@@ -203,21 +276,30 @@
     </nav>
   </div>
 
-  <div class="sidebar-contact">
-    <p><strong>Contact</strong></p>
-    <a href="mailto:kshitiz@example.com">kshitiz@example.com</a>
-    <a href="https://linkedin.com/in/kshitizdhungel" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/ktd2054" target="_blank" rel="noopener">GitHub</a>
+  <div class="sidebar-contact" aria-label="Contact information">
+    <p>Contact</p>
+    <a href="mailto:kshitiz@example.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4v16h20V4H2zm18 2-8 5-8-5V6l8 5 8-5v.01z"/></svg>
+      kshitiz@example.com
+    </a>
+    <a href="https://linkedin.com/in/kshitizdhungel" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C3.34 3.5 2 4.8 2 6.5S3.34 9.5 4.98 9.5 7.96 8.2 7.96 6.5 6.62 3.5 4.98 3.5zM2.5 20.5h5v-9h-5v9zM9.5 20.5h5v-4.8c0-2.7-3-2.5-3 0v4.8zm7.5-11h-4v2h4v-2z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/ktd2054" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-1.04-.02-1.9-2.78.6-3.37-1.37-3.37-1.37-.45-1.16-1.11-1.48-1.11-1.48-.91-.63.07-.62.07-.62 1 .07 1.53 1.02 1.53 1.02.9 1.53 2.37 1.1 2.94.84.09-.65.35-1.1.64-1.36-2.22-.25-4.55-1.11-4.55-4.95 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.28.1-2.67 0 0 .84-.27 2.75 1.02a9.58 9.58 0 0 1 2.5-.34c.85.004 1.7.11 2.5.34 1.9-1.29 2.75-1.02 2.75-1.02.55 1.39.2 2.41.1 2.67.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.69.48A10.004 10.004 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+      GitHub
+    </a>
   </div>
 </div>
 
 <main>
-  <section id="about" class="animated-section">
+  <section id="about" class="animated-section" tabindex="-1">
     <h2>About Me</h2>
     <p>Hi! I'm Kshitiz, an IT and cybersecurity enthusiast passionate about learning and building secure, innovative systems. I recently completed my Master's degree in Information Technology and am excited to grow my career in remote IT support and security operations.</p>
   </section>
 
-  <section id="skills" class="animated-section">
+  <section id="skills" class="animated-section" tabindex="-1">
     <h2>Skills</h2>
     <div class="skills-list">
       <span>Cybersecurity</span>
@@ -232,7 +314,7 @@
     </div>
   </section>
 
-  <section id="projects" class="animated-section">
+  <section id="projects" class="animated-section" tabindex="-1">
     <h2>Projects</h2>
     <div class="projects-list">
       <div class="project-card">
@@ -250,7 +332,7 @@
     </div>
   </section>
 
-  <section id="contact" class="animated-section">
+  <section id="contact" class="animated-section" tabindex="-1">
     <h2>Contact</h2>
     <p>
       Feel free to reach out to me via email or connect on LinkedIn or GitHub. I’m open for collaborations and job opportunities.
@@ -280,12 +362,23 @@
   function setActiveLink() {
     let index = sections.length;
 
-    while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+    while (--index && window.scrollY + 120 < sections[index].offsetTop) {}
     navLinks.forEach(link => link.classList.remove('active'));
     navLinks[index].classList.add('active');
   }
   window.addEventListener('scroll', setActiveLink);
   window.addEventListener('load', setActiveLink);
+
+  // Smooth scroll with focus for accessibility
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetID = link.getAttribute('href').slice(1);
+      const targetSection = document.getElementById(targetID);
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+      targetSection.focus({ preventScroll: true });
+    });
+  });
 </script>
 
 </body>
