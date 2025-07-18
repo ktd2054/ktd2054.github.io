@@ -1,130 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kshitiz Dhungel - Resume Card</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #eef2f7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    .resume-card {
-      background: white;
-      width: 340px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-      padding: 30px 35px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
-    }
-    .resume-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-    .name {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 4px;
-    }
-    .title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #555;
-      margin-bottom: 18px;
-      letter-spacing: 1px;
-    }
-    .section {
-      margin-bottom: 22px;
-    }
-    .section h3 {
-      font-size: 1.2rem;
-      color: #0077cc;
-      border-bottom: 2px solid #0077cc;
-      padding-bottom: 6px;
-      margin-bottom: 12px;
-    }
-    .section p, 
-    .section ul {
-      font-size: 0.95rem;
-      color: #333;
-      line-height: 1.4;
-      margin: 0;
-      padding-left: 15px;
-    }
-    .section ul {
-      list-style-type: disc;
-    }
-    .section ul li {
-      margin-bottom: 8px;
-    }
-    .contact {
-      font-size: 0.9rem;
-      color: #444;
-      margin-top: 10px;
-      line-height: 1.5;
-    }
-    .contact span {
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kshitiz Dhungel - Cybersecurity Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 20px auto;
+        }
+        
+        .resume-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        
+        .resume-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 1.4rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1rem;
+            gap: 8px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 25px;
+        }
+        
+        .left-column {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+        }
+        
+        .right-column {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #203a43;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3a7bd5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: #3a7bd5;
+        }
+        
+        .section-content {
+            padding-left: 10px;
+        }
+        
+        .education-item, .cert-item, .interest-item {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 2px solid #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover, .cert-item:hover, .interest-item:hover {
+            border-left: 2px solid #3a7bd5;
+            transform: translateX(5px);
+        }
+        
+        .education-item h3, .cert-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c5364;
+            margin-bottom: 5px;
+        }
+        
+        .interest-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .interest-item i {
+            color: #3a7bd5;
+            font-size: 1.2rem;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .skill-item {
+            background: #e3f2fd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #0d47a1;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: #bbdefb;
+            transform: translateY(-3px);
+        }
+        
+        .project-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover {
+            background: #e3f2fd;
+            transform: translateY(-3px);
+        }
+        
+        .project-item h3 {
+            font-size: 1.1rem;
+            color: #2c5364;
+            margin-bottom: 8px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+        
+        .contact-item i {
+            font-size: 1.4rem;
+            color: #3a7bd5;
+            min-width: 30px;
+        }
+        
+        .progress-container {
+            margin-top: 5px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            height: 8px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            width: 75%;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f1f8ff;
+            color: #2c5364;
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+        }
+        
+        .cyber-icon {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 5rem;
+        }
+        
+        .icon-1 { top: 20px; right: 30px; }
+        .icon-2 { bottom: 20px; left: 30px; transform: rotate(45deg); }
+    </style>
 </head>
 <body>
-  <article class="resume-card" role="main" aria-label="Resume of Kshitiz Dhungel">
-    <header>
-      <h1 class="name">Kshitiz Dhungel</h1>
-      <p class="title">Information Technology Graduate | Aspiring SOC Analyst</p>
-    </header>
-
-    <section class="section profile">
-      <h3>Profile</h3>
-      <p>
-        Passionate IT graduate with strong interest in cybersecurity, cloud technologies, and SOC analysis. Experienced with hands-on labs in Kali Linux, Splunk, and cloud fundamentals. Motivated to learn, grow, and contribute in dynamic IT environments.
-      </p>
-    </section>
-
-    <section class="section skills">
-      <h3>Skills</h3>
-      <ul>
-        <li>Cybersecurity & SOC Fundamentals (TryHackMe SAL1 Pathway)</li>
-        <li>Linux & Windows Administration</li>
-        <li>Cloud Basics: Azure Fundamentals (AZ-900)</li>
-        <li>Network Monitoring & Incident Response</li>
-        <li>Basic Scripting and Automation</li>
-      </ul>
-    </section>
-
-    <section class="section experience">
-      <h3>Experience</h3>
-      <ul>
-        <li><strong>Personal Projects</strong> - Built a home cybersecurity lab with Windows Server, Kali Linux, and Metasploitable for hands-on SOC and pentesting practice.</li>
-        <li><strong>Internship / Volunteer Work</strong> - Assisted with basic IT support and troubleshooting at community organizations (details on request).</li>
-      </ul>
-    </section>
-
-    <section class="section education">
-      <h3>Education</h3>
-      <ul>
-        <li>Master of Information Technology</li>
-        <li>King's Own Institute, Sydney</li>
-        <li>Graduated 2025</li>
-      </ul>
-    </section>
-
-    <section class="contact">
-      <h3>Contact</h3>
-      <span>Email: <a href="mailto:kshitiz@example.com">kshitiz@example.com</a></span>
-      <span>Phone: +61 123 456 789</span>
-      <span>LinkedIn: <a href="https://linkedin.com/in/kshitiz" target="_blank" rel="noopener">linkedin.com/in/kshitiz</a></span>
-      <span>Location: Sydney, Australia</span>
-    </section>
-  </article>
+    <div class="resume-container">
+        <div class="resume-card">
+            <div class="header">
+                <i class="fas fa-shield-alt cyber-icon icon-1"></i>
+                <i class="fas fa-server cyber-icon icon-2"></i>
+                <h1 class="name">Kshitiz Dhungel</h1>
+                <div class="title">Cybersecurity & Cloud Computing Professional</div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sydney, Australia</span>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="left-column">
+                    <div class="section">
+                        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                        <div class="section-content">
+                            <div class="education-item">
+                                <h3>Master of Information Technology</h3>
+                                <p>Specialized in Cybersecurity</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title"><i class="fas fa-briefcase"></i> Career Interests</h2>
+                        <div class="section-content">
+                            <div class="interest-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>Security Operations Center (SOC) Analyst</div>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-lock"></i>
+                                <div>Cybersecurity Analyst</div>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-cloud"></i>
+                                <div>Cloud Computing (Azure Fundamentals - AZ-900)</div>
+                            </div>
+                            <div class="interest-item">
+                                <i class="fas fa-headset"></i>
+                                <div>IT Support / Help Desk</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+                        <div class="section-content">
+                            <div class="cert-item">
+                                <h3>TryHackMe SOC Analyst Level 1 (SAL1)</h3>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="cert-item">
+                                <h3>Splunk Core Certified User</h3>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="cert-item">
+                                <h3>Microsoft AZ-900 (Azure Fundamentals)</h3>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title"><i class="fas fa-address-card"></i> Contact</h2>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>kshitiz@example.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+61 123 456 789</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <span>linkedin.com/in/kshitiz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h2 class="section-title"><i class="fas fa-laptop-code"></i> Skills & Experience</h2>
+                        <div class="section-content">
+                            <div class="skills">
+                                <div class="skill-item">Cybersecurity Fundamentals</div>
+                                <div class="skill-item">Kali Linux</div>
+                                <div class="skill-item">Metasploitable</div>
+                                <div class="skill-item">Windows Server</div>
+                                <div class="skill-item">Network Monitoring</div>
+                                <div class="skill-item">Incident Response</div>
+                                <div class="skill-item">Linux Administration</div>
+                                <div class="skill-item">Windows Administration</div>
+                                <div class="skill-item">Scripting & Automation</div>
+                                <div class="skill-item">Azure Fundamentals</div>
+                                <div class="skill-item">Vulnerability Assessment</div>
+                                <div class="skill-item">Home Lab Setup</div>
+                            </div>
+                            
+                            <div style="margin-top: 20px;">
+                                <p><i class="fas fa-check-circle" style="color: #3a7bd5;"></i> Hands-on with Kali Linux, Metasploitable, Windows Server for home lab setup</p>
+                                <p><i class="fas fa-check-circle" style="color: #3a7bd5;"></i> Experience building cybersecurity home lab and running vulnerability assessments</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
+                        <div class="section-content">
+                            <div class="project-item">
+                                <h3>Personal Cybersecurity Home Lab</h3>
+                                <p>Multi-OS environment for security testing and learning</p>
+                            </div>
+                            <div class="project-item">
+                                <h3>E-commerce Cybersecurity Capstone</h3>
+                                <p>Security implementation for a skincare e-commerce site</p>
+                            </div>
+                            <div class="project-item">
+                                <h3>IoT Network Traffic Monitoring</h3>
+                                <p>Anomaly detection system using Cooja</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>Designed with a cybersecurity focus | Updated: July 2023</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
