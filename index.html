@@ -2,219 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kshitiz Dhungel - Personal Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kshitiz Dhungel | Portfolio</title>
   <style>
-    /* Reset & Base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
-      height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #2e0249, #570a57, #904e95);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #1e3c72, #2a5298);
       color: white;
-      overflow-x: hidden;
-      perspective: 1200px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      user-select: none;
+      overflow: hidden;
+      transition: background 1s ease;
     }
-    a {
-      color: #ff6f91;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #ff3f7f;
-    }
-    /* Background floating blurred circles */
-    .background-circles {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 120vw;
-      height: 120vh;
-      pointer-events: none;
-      overflow: visible;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-    }
-    .circle {
+
+    .main-screen, .section {
+      height: 100vh;
+      width: 100vw;
       position: absolute;
-      border-radius: 50%;
-      opacity: 0.15;
-      filter: blur(50px);
-      mix-blend-mode: screen;
-      animation: float 6s ease-in-out infinite alternate;
-    }
-    .circle1 {
-      width: 400px; height: 400px;
-      background: #ff6f91;
-      top: 20%; left: 30%;
-      animation-delay: 0s;
-    }
-    .circle2 {
-      width: 600px; height: 600px;
-      background: #ff3f7f;
-      top: 60%; left: 60%;
-      animation-delay: 2s;
-    }
-    .circle3 {
-      width: 300px; height: 300px;
-      background: #ff94ac;
-      top: 40%; left: 75%;
-      animation-delay: 4s;
-    }
-    @keyframes float {
-      0% {
-        transform: translateY(0);
-        opacity: 0.15;
-      }
-      100% {
-        transform: translateY(-30px);
-        opacity: 0.3;
-      }
-    }
-    /* 3D Interactive Card */
-    .card {
-      position: relative;
-      width: 320px;
-      height: 420px;
-      background: linear-gradient(135deg, #ff6f91, #ff3f7f);
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(255, 111, 145, 0.6);
-      transform-style: preserve-3d;
-      transition: transform 0.3s ease;
-      cursor: grab;
+      top: 0;
+      left: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
-      z-index: 10;
-      outline: none;
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    .card:focus {
-      box-shadow:
-        0 0 15px #ff6f91,
-        0 0 30px #ff6f91,
-        0 0 45px #ff3f7f,
-        0 0 60px #ff3f7f;
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.05);
     }
-    .card h1 {
-      margin-bottom: 0.5rem;
-      font-size: 2.5rem;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      user-select: text;
+
+    .visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
     }
-    .card p {
-      font-size: 1.1rem;
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+    }
+
+    .bio {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+      max-width: 80%;
       text-align: center;
-      max-width: 280px;
-      line-height: 1.4;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.2);
-      user-select: text;
     }
-    /* Glow effect on hover */
-    .card:hover {
-      box-shadow:
-        0 0 10px #ff6f91,
-        0 0 20px #ff6f91,
-        0 0 30px #ff6f91,
-        0 0 40px #ff3f7f,
-        0 0 70px #ff3f7f,
-        0 0 80px #ff3f7f,
-        0 0 100px #ff3f7f;
-    }
-    /* Button */
-    button {
-      margin-top: 2rem;
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
+
+    .menu button, .section button {
+      margin: 0.5em;
+      padding: 0.7em 1.5em;
       border: none;
-      background: white;
-      color: #ff3f7f;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 6px 15px rgba(255, 63, 127, 0.4);
-      transition: background 0.3s ease, color 0.3s ease;
-      user-select: none;
-      font-size: 1rem;
-    }
-    button:hover {
-      background: #ff3f7f;
+      border-radius: 25px;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.1);
       color: white;
-      box-shadow: 0 8px 25px rgba(255, 63, 127, 0.8);
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    /* Responsive for smaller screens */
-    @media (max-width: 360px) {
-      .card {
-        width: 280px;
-        height: 380px;
-        padding: 1.5rem;
+
+    .menu button:hover, .section button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .section h2 {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.2em;
+    }
+
+    .section ul li {
+      margin: 0.5em 0;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
       }
-      .card h1 {
-        font-size: 2rem;
-      }
-      .card p {
-        font-size: 1rem;
-        max-width: 220px;
-      }
-      button {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
+      .section h2 {
+        font-size: 2em;
       }
     }
   </style>
 </head>
 <body>
-  <div class="background-circles" aria-hidden="true">
-    <div class="circle circle1"></div>
-    <div class="circle circle2"></div>
-    <div class="circle circle3"></div>
+  <!-- Landing -->
+  <div class="main-screen visible" id="home">
+    <h1>Kshitiz Dhungel</h1>
+    <p class="bio">Aspiring Cybersecurity Professional focused on SOC analysis, threat detection, and real-world defense strategies.</p>
+    <div class="menu">
+      <button onclick="navigateTo('skills')">Skills</button>
+      <button onclick="navigateTo('projects')">Projects</button>
+      <button onclick="navigateTo('contact')">Contact</button>
+    </div>
   </div>
 
-  <div class="card" id="card" tabindex="0" aria-label="3D interactive personal card">
-    <h1>Kshitiz Dhungel</h1>
-    <p>Full-stack developer crafting immersive digital experiences with pure JavaScript and CSS.</p>
-    <button onclick="alert('Contact me at your.email@example.com')">Contact Me</button>
+  <!-- Skills Section -->
+  <div id="skills" class="section hidden">
+    <h2>💡 Skills</h2>
+    <ul>
+      <li>SIEM Tools (Splunk, Wazuh)</li>
+      <li>Threat Intelligence</li>
+      <li>Incident Response</li>
+      <li>Phishing Detection</li>
+    </ul>
+    <button onclick="goBack()">⬅ Back</button>
+  </div>
+
+  <!-- Projects Section -->
+  <div id="projects" class="section hidden">
+    <h2>🚀 Projects</h2>
+    <ul>
+      <li>Real-time Phishing Tracker</li>
+      <li>Basic Honeypot on VPS</li>
+      <li>DNS Traffic Monitoring</li>
+    </ul>
+    <button onclick="goBack()">⬅ Back</button>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact" class="section hidden">
+    <h2>📨 Contact</h2>
+    <p>Email: kshitiz@example.com</p>
+    <p>LinkedIn: /in/kshitiz-dhungel</p>
+    <button onclick="goBack()">⬅ Back</button>
   </div>
 
   <script>
-    const card = document.getElementById('card');
+    function navigateTo(sectionId) {
+      document.getElementById('home').classList.remove('visible');
+      document.getElementById('home').classList.add('hidden');
+      document.getElementById(sectionId).classList.remove('hidden');
+      document.getElementById(sectionId).classList.add('visible');
+    }
 
-    // Rotate card based on mouse position relative to center of card
-    window.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const cardX = rect.left + rect.width / 2;
-      const cardY = rect.top + rect.height / 2;
-
-      const deltaX = e.clientX - cardX;
-      const deltaY = e.clientY - cardY;
-
-      // Limit rotation angles
-      const rotateX = (-deltaY / rect.height) * 30;
-      const rotateY = (deltaX / rect.width) * 30;
-
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
-    });
-
-    // Reset rotation when mouse leaves card
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-    });
-
-    // Keyboard focus scaling effect
-    card.addEventListener('focus', () => {
-      card.style.transform = 'scale(1.05)';
-    });
-    card.addEventListener('blur', () => {
-      card.style.transform = 'scale(1)';
-    });
+    function goBack() {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('visible');
+        section.classList.add('hidden');
+      });
+      document.getElementById('home').classList.remove('hidden');
+      document.getElementById('home').classList.add('visible');
+    }
   </script>
 </body>
 </html>
